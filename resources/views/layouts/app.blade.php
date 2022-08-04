@@ -10,6 +10,9 @@
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+        <script src="https://unpkg.com/flowbite@1.5.1/dist/flowbite.js"></script>
+        <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.1/dist/flowbite.min.css" />
+    
 
         <!-- Scripts -->
     </head>
