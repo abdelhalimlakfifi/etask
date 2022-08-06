@@ -2,11 +2,18 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Models\User;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Hash;
+use Mail;
+use App\Mail\twoFactor;
+use Carbon\Carbon;
+use Validator;
+use Illuminate\Support\Facades\Crypt;
 
 class AuthenticatedSessionController extends Controller
 {
@@ -15,6 +22,7 @@ class AuthenticatedSessionController extends Controller
      *
      * @return \Illuminate\View\View
      */
+    
     public function create()
     {
         return view('pages.auth.auth');
@@ -26,8 +34,10 @@ class AuthenticatedSessionController extends Controller
      * @param  \App\Http\Requests\Auth\LoginRequest  $request
      * @return \Illuminate\Http\RedirectResponse
      */
+    
     public function store(LoginRequest $request)
     {
+        
         $request->authenticate();
 
         $request->session()->regenerate();
